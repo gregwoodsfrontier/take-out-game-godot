@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 UserSettings="*res://settings/user_settings.gd"
+InteractionManager="*res://scenes/interaction/InteractionManager.tscn"
 
 [display]
 
@@ -90,6 +91,11 @@ pause={
 [internationalization]
 
 locale/translations=PackedStringArray("res://i18n/translation.de.translation", "res://i18n/translation.en.translation")
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
 
 [rendering]
 
