@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://2e766ppujngq"]
+
+[ext_resource type="Texture2D" uid="uid://cj7vadex2vvbq" path="res://assets/indicator_holder.png" id="1_3on6a"]
+[ext_resource type="Script" path="res://scenes/OffScreenIndicator.gd" id="1_5dklb"]
+[ext_resource type="Texture2D" uid="uid://b452o6d23bfao" path="res://assets/shoppingBasket_white2x.png" id="2_a30tu"]
+
+[node name="OffScreenIndicator" type="Node2D"]
+rotation = 0.00134785
+scale = Vector2(1, 1.00264)
+script = ExtResource("1_5dklb")
+
+[node name="IndicatorHolder" type="Sprite2D" parent="."]
+position = Vector2(-0.0107942, -0.0184067)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("1_3on6a")
+offset = Vector2(-31.9372, 0.107093)
+
+[node name="IconHolder" type="Node2D" parent="IndicatorHolder"]
+position = Vector2(-37.4575, 0.507815)
+
+[node name="Polygon2D" type="Polygon2D" parent="IndicatorHolder/IconHolder"]
+position = Vector2(5.35033, -0.617144)
+color = Color(0.113725, 0.113725, 0.113725, 1)
+polygon = PackedVector2Array(-7.24952, -18.3112, -18.4044, -14.888, -24.6683, -2.73543, -22.7805, 8.56129, -14.9721, 17.8041, -2.70177, 19.0022, 9.22537, 13.6106, 14.8028, 1.2013, 11.7996, -10.0954, 2.61825, -17.9689)
+
+[node name="Icon" type="Sprite2D" parent="IndicatorHolder/IconHolder"]
+position = Vector2(-1.30439, -1.95731)
+scale = Vector2(0.425454, 0.425454)
+texture = ExtResource("2_a30tu")

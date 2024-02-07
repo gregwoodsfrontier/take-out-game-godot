@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://gctwjds4xwc1"]
+[gd_scene load_steps=4 format=3 uid="uid://gctwjds4xwc1"]
 
 [ext_resource type="PackedScene" uid="uid://cj14jc4o8u26n" path="res://scenes/tile_map.tscn" id="1_cmoie"]
 [ext_resource type="PackedScene" uid="uid://dk5luc6g4wr8h" path="res://scenes/characters/green_boy.tscn" id="2_gl5fl"]
+[ext_resource type="PackedScene" uid="uid://2e766ppujngq" path="res://scenes/OffScreenIndicator.tscn" id="3_83qrx"]
 
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_cmoie")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(371, 172)
+position = Vector2(377, 203)
 zoom = Vector2(2.5, 2.5)
 limit_left = 0
 limit_top = 0
@@ -17,8 +18,12 @@ limit_bottom = 355
 editor_draw_limits = true
 
 [node name="GreenBoy" parent="." groups=["player"] instance=ExtResource("2_gl5fl")]
-position = Vector2(371, 172)
+position = Vector2(377, 203)
 speed = 60.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="GreenBoy"]
 remote_path = NodePath("../../Camera2D")
+
+[node name="OffScreenIndicator" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_83qrx")]
+position = Vector2(295, 99)
+target_node = NodePath("../GreenBoy")
