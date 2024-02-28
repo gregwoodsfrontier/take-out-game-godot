@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmaq4vaycdd8q"]
+
+[ext_resource type="TileSet" uid="uid://bldqmuvysyrn1" path="res://assets/tilesets/town_tile_map.tres" id="1_dcjmd"]
+[ext_resource type="PackedScene" uid="uid://d1jxye18cw0od" path="res://scenes/interaction/interaction_area/interaction_area.tscn" id="2_tjmkt"]
+[ext_resource type="PackedScene" uid="uid://dk2qrdg5vsu6i" path="res://scenes/buildings/building_logic.tscn" id="2_xk5jn"]
+[ext_resource type="PackedScene" uid="uid://2e766ppujngq" path="res://scenes/OffScreenIndicator.tscn" id="3_j85cd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5fy4"]
+size = Vector2(103, 23)
+
+[node name="RedBuildingA" type="TileMap"]
+tile_set = ExtResource("1_dcjmd")
+format = 2
+layer_0/name = "building"
+layer_0/tile_data = PackedInt32Array(-65536, 1376257, 3, -65535, 1441793, 3, -1, 1310721, 3, -65537, 1310721, 2, -2, 1245185, 3, -131073, 1310721, 1, -3, 1114113, 3, -65533, 1245185, 3, -65534, 1114113, 3, -196608, 1179649, 1, -196607, 1441793, 1, -131071, 1441793, 2, -196609, 1310721, 0, -262144, 1376257, 0, -262143, 1441793, 0, -131072, 1376257, 2, -65538, 1245185, 2, -131074, 1245185, 2, -196610, 1245185, 0, -65539, 1114113, 2, -131075, 1114113, 2, -196611, 1114113, 0, -262142, 1114113, 0, -196606, 1114113, 2, -131070, 1114113, 2, -262141, 1245185, 0, -196605, 1245185, 2, -131069, 1245185, 2, -327677, 131073, 5, -393213, 131073, 4, -458749, 131073, 3, -327678, 65537, 5, -393214, 65537, 4, -458750, 65537, 3, -327679, 65537, 5, -393215, 65537, 4, -458751, 65537, 3, -327680, 65537, 5, -393216, 65537, 4, -458752, 65537, 3, -262145, 65537, 5, -327681, 65537, 4, -393217, 65537, 3, -262146, 65537, 5, -327682, 65537, 4, -393218, 65537, 3, -262147, 1, 5, -327683, 1, 4, -393219, 1, 3)
+layer_1/name = "windows"
+layer_1/tile_data = PackedInt32Array(-65536, 983041, 10, -1, 786433, 9, -65535, 786433, 9, -196609, 720897, 13, -131073, 720897, 14, -262143, 720897, 13, -196607, 720897, 14, -262141, 720897, 13, -196611, 720897, 13, -196610, 720897, 13, -65539, 786433, 13, -65538, 786433, 13, -196605, 720897, 14, -262142, 720897, 13, -196606, 720897, 14, -131074, 720897, 14, -131075, 720897, 14, -131070, 786433, 13, -131069, 786433, 13, -393213, 655361, 12, -393214, 655361, 12, -327682, 589825, 12, -327681, 589825, 12)
+
+[node name="BuildingLogic" parent="." instance=ExtResource("2_xk5jn")]
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_tjmkt")]
+position = Vector2(2, 8)
+action_name = "_hand_over_package"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(6.5, 3.5)
+shape = SubResource("RectangleShape2D_d5fy4")
+
+[node name="OffScreenIndicator" parent="." instance=ExtResource("3_j85cd")]
+position = Vector2(8, 3)
+scale = Vector2(2, 2)

@@ -12,11 +12,15 @@ func _ready() -> void:
 	pause_overlay.game_exited.connect(_save_game)
 
 func _input(event) -> void:
+	_handle_pause_input(event)
+	
+
+func _save_game() -> void:
+	SaveGame.save_game(get_tree())
+
+func _handle_pause_input(event) -> void:
 	if event.is_action_pressed("pause") and not pause_overlay.visible:
 		get_viewport().set_input_as_handled()
 		get_tree().paused = true
 		pause_overlay.grab_button_focus()
 		pause_overlay.visible = true
-		
-func _save_game() -> void:
-	SaveGame.save_game(get_tree())

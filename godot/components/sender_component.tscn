@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b06giw4ks3165"]
+
+[node name="SenderComponent" type="Node2D"]

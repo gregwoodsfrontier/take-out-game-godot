@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 UserSettings="*res://settings/user_settings.gd"
 InteractionManager="*res://scenes/interaction/InteractionManager.tscn"
+GameParamsManager="*res://managers/game_params_manager.gd"
 
 [display]
 

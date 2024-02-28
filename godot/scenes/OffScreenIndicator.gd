@@ -1,9 +1,13 @@
 extends Node2D
+class_name OffScreenIndicator
+
+signal indicator_inbound
+signal indicator_outbound
 
 @onready var indicator_holder = $IndicatorHolder
 @onready var icon = $IndicatorHolder/IconHolder
+@onready var target_node = get_tree().get_first_node_in_group("player")
 
-@export var target_node: CharacterBody2D
 var target_position = null
 
 func _process(_delta):
@@ -41,9 +45,11 @@ func set_marker_position(bounds: Rect2) -> void:
 		indicator_holder.global_position = length * Vector2.from_angle(displacement.angle()) + target_position
 	
 	if bounds.has_point(global_position):
-		hide()
+		#hide()
+		indicator_inbound.emit()
 	else:
-		show()
+		#show()
+		indicator_outbound.emit()
 
 func is_point_on_y_side(_displacement, _tl, _tr, _bl, _br):
 	return (_displacement.angle() > _tl && _displacement.angle() < _tr) || (_displacement.angle() < _bl && _displacement.angle() > _br)

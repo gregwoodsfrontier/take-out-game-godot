@@ -24,6 +24,5 @@ speed = 60.0
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="GreenBoy"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="OffScreenIndicator" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_83qrx")]
+[node name="OffScreenIndicator" parent="." instance=ExtResource("3_83qrx")]
 position = Vector2(295, 99)
-target_node = NodePath("../GreenBoy")

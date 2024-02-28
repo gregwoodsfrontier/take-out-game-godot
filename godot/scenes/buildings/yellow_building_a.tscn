@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dftc6m3pruke0"]
+
+[ext_resource type="TileSet" uid="uid://bldqmuvysyrn1" path="res://assets/tilesets/town_tile_map.tres" id="1_pomto"]
+[ext_resource type="PackedScene" uid="uid://d1jxye18cw0od" path="res://scenes/interaction/interaction_area/interaction_area.tscn" id="2_sj6f4"]
+[ext_resource type="PackedScene" uid="uid://2e766ppujngq" path="res://scenes/OffScreenIndicator.tscn" id="3_sx3ph"]
+[ext_resource type="Texture2D" uid="uid://bvg3rgcnn7cwf" path="res://assets/shoppingCart_white2x.png" id="4_5sqcq"]
+[ext_resource type="PackedScene" uid="uid://dk2qrdg5vsu6i" path="res://scenes/buildings/building_logic.tscn" id="5_3u2ei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_367e4"]
+size = Vector2(103, 23)
+
+[node name="YellowBuildingA" type="TileMap"]
+tile_set = ExtResource("1_pomto")
+format = 2
+layer_0/name = "building"
+layer_0/tile_data = PackedInt32Array(-65536, 1376257, 7, -65535, 1376257, 7, -1, 1376257, 7, -2, 1310721, 7, -65534, 1441793, 7, -3, 1048577, 7, -65538, 1310721, 6, -65537, 1376257, 6, -131072, 1376257, 6, -131071, 1376257, 6, -131070, 1441793, 6, -131073, 1376257, 5, -196608, 1376257, 5, -196607, 1376257, 5, -131074, 1310721, 5, -196606, 1441793, 5, -196609, 1376257, 6, -262144, 1376257, 6, -262143, 1376257, 6, -327679, 1376257, 4, -327680, 1376257, 4, -262145, 1376257, 4, -327678, 1441793, 4, -262146, 1310721, 4, -196610, 1310721, 6, -262142, 1441793, 6, -262147, 1048577, 4, -327677, 1048577, 4, -131075, 1048577, 6, -65539, 1048577, 6, -196611, 1048577, 5, -262141, 1048577, 5, -196605, 1048577, 6, -131069, 1048577, 6, -65533, 1048577, 7, -393213, 655361, 5, -458749, 655361, 4, -524285, 655361, 3, -393214, 589825, 5, -458750, 589825, 4, -524286, 589825, 3, -393215, 589825, 5, -458751, 589825, 4, -524287, 589825, 3, -393216, 589825, 5, -458752, 589825, 4, -524288, 589825, 3, -327681, 589825, 5, -393217, 589825, 4, -458753, 589825, 3, -327682, 589825, 5, -393218, 589825, 4, -458754, 589825, 3, -327683, 524289, 5, -393219, 524289, 4, -458755, 524289, 3)
+layer_1/name = "doors"
+layer_1/tile_data = PackedInt32Array(-65536, 917505, 10, -2, 786433, 10, -65534, 786433, 10, -65537, 851969, 13, -131071, 851969, 13, -262146, 786433, 12, -196610, 917505, 14, -327680, 786433, 12, -327678, 786433, 12, -262144, 917505, 14, -262142, 917505, 14, -458750, 655361, 12, -458751, 655361, 12, -393218, 589825, 12)
+
+[node name="BuildingLogic" parent="." instance=ExtResource("5_3u2ei")]
+building_type = 1
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_sj6f4")]
+position = Vector2(2, 8)
+action_name = "yellow build"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(6.5, 3.5)
+shape = SubResource("RectangleShape2D_367e4")
+
+[node name="OffScreenIndicator" parent="." instance=ExtResource("3_sx3ph")]
+position = Vector2(8, 3)
+scale = Vector2(2, 2)
+
+[node name="Icon" parent="OffScreenIndicator/IndicatorHolder/IconHolder" index="1"]
+texture = ExtResource("4_5sqcq")
+
+[editable path="OffScreenIndicator"]
